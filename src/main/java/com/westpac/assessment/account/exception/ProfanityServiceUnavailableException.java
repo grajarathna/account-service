@@ -1,0 +1,12 @@
+package com.westpac.assessment.account.exception;
+
+public class ProfanityServiceUnavailableException
+        extends RuntimeException {
+
+    public ProfanityServiceUnavailableException(
+            String message,
+            Throwable cause) {
+
+        super(message, cause);
+    }
+}

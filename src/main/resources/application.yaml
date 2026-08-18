@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: account-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/accountdb
+    #TODO:move credentials to secrets
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6380
+      #TODO:move credentials to secrets
+      password: admin
+      timeout: 2s
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10m
+      cache-null-values: false
+
+external:
+  profanity:
+    base-url: https://api.api-ninjas.com
+    #TODO:move the api-key to secrets
+    api-key: ${PROFANITY_API_KEY}
+
+server:
+  port: 8080
